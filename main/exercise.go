@@ -7,17 +7,7 @@ import (
 	"net/http"
 )
 
-type workout struct {
-	Name        string
-	Description string
-}
-
-var dataArray = []workout{
-	workout{"bicep", "Works the arm"},
-	workout{"squat", "Works the quads"},
-}
-
-var data = dataArray
+var data = DataArray
 
 func getNewExercise(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {

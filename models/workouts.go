@@ -1,11 +1,6 @@
-package workoutmodel
+package models
 
-type workout struct {
+type Workout struct {
 	Name        string
 	Description string
-}
-
-var dataArray = []workout{
-	workout{"bicep", "Works the arm"},
-	workout{"squat", "Works the quads"},
 }
