@@ -5,22 +5,25 @@ import (
 	"io"
 	"log"
 	"net/http"
+
+	data "github.com/andrewhinson/ExerciseSelection/data"
+	models "github.com/andrewhinson/ExerciseSelection/models"
 )
 
-var data = DataArray
+var allData = data.DataArray
 
 func getNewExercise(w http.ResponseWriter, r *http.Request) {
 	if r.Method != "POST" {
 		http.Redirect(w, r, "/", http.StatusSeeOther)
 	}
-	io.WriteString(w, data[0].Name)
+	io.WriteString(w, allData[0].Name)
 
 }
 
 func excerciseSelection(w http.ResponseWriter, r *http.Request) {
-	var s workout
+	var s models.Workout
 	if r.FormValue("bicep") == "on" {
-		s = workout{"bicep", "Works the arm"}
+		s = allData[0]
 	}
 
 	t, err := template.ParseFiles("templates/exercises.html")
