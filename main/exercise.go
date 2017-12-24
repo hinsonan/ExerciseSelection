@@ -20,12 +20,13 @@ func getNewExercise(w http.ResponseWriter, r *http.Request) {
 
 }
 
+//this funtion will execute at the root and will be used to display the exercises
 func excerciseSelection(w http.ResponseWriter, r *http.Request) {
 	var s models.Workout
 	if r.FormValue("bicep") == "on" {
 		s = allData[0]
 	}
-
+	//sets the template up and executes it with the data
 	t, err := template.ParseFiles("templates/exercises.html")
 	if err != nil {
 		log.Print("template parsing error: ", err)
