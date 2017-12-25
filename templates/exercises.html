@@ -9,6 +9,7 @@
   <!--site css -->
   <link rel="stylesheet" type="text/css" href="../css/site.css">
 
+  <link rel="icon" type="image/png" href="../img/favicon.png">
 
   <meta charset="UTF-8">
   <title>Exercise Selection</title>
@@ -16,7 +17,7 @@
 
 <body>
 
-  <nav>
+  <nav class="red darken-1">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">Exercise Selection</a>
 
@@ -26,7 +27,7 @@
   <main>
     <div class="container">
       <div class="row formrow">
-        <div class="col s12 formcol">
+        <div class="col s12 formcol test">
           <form method="POST">
 
             <p>
@@ -57,12 +58,14 @@
 
       <div class="row">
         {{range .}}
-        <div class="col s12">
-
-          <h2 class="center">{{.Name}}</h2>
-          <p class="center">{{.Description}}</p>
-
-
+        <div class="col s12 workoutBox">
+          
+            <img src={{.Img}} class="workoutPic" />
+            <div class="textBox">
+              <h2 class="center">{{.Name}}</h2>
+              <p class="center">{{.Description}}</p>
+            </div>
+          
         </div>
         {{end}}
       </div>
@@ -71,7 +74,7 @@
 
 
   </main>
-  <footer class="page-footer">
+  <footer class="page-footer red darken-1">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">

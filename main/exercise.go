@@ -45,9 +45,10 @@ func excerciseSelection(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	//these 2 lines of code serve up the css and js so the template can use them
+	//these 3 lines of code serve up the css, img and js so the template can use them
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
+	http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("img"))))
 
 	http.HandleFunc("/", excerciseSelection)
 	http.HandleFunc("/newExercise", getNewExercise)
