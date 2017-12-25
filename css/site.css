@@ -8,3 +8,23 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+  form{
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .formrow{
+    margin-top: 5%;
+  }
+
+  .formcol{
+    background: lightgrey;
+    padding: 10px !important;
+  }
+
+  button{
+    width: 250%;
+    margin-left: -90%;
+  }

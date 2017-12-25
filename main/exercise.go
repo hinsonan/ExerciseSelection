@@ -22,16 +22,22 @@ func getNewExercise(w http.ResponseWriter, r *http.Request) {
 
 //this funtion will execute at the root and will be used to display the exercises
 func excerciseSelection(w http.ResponseWriter, r *http.Request) {
-	var s models.Workout
+	//be used to send the filtered data to template
+	var workoutData []models.Workout
 	if r.FormValue("bicep") == "on" {
-		s = allData[0]
+		//filters the correct data based on usr input
+		var filteredData = []models.Workout{
+			allData[0],
+		}
+		//fills the data sent to template with the correct filtered data
+		workoutData = filteredData
 	}
 	//sets the template up and executes it with the data
 	t, err := template.ParseFiles("templates/exercises.html")
 	if err != nil {
 		log.Print("template parsing error: ", err)
 	}
-	err = t.Execute(w, s)
+	err = t.Execute(w, workoutData)
 	if err != nil {
 		log.Print("template executing error: ", err)
 	}
