@@ -27,7 +27,7 @@ func excerciseSelection(w http.ResponseWriter, r *http.Request) {
 	if r.FormValue("bicep") == "on" {
 		//filters the correct data based on usr input
 		var filteredData = []models.Workout{
-			allData[0],
+			allData[0], allData[1],
 		}
 		//fills the data sent to template with the correct filtered data
 		workoutData = filteredData
