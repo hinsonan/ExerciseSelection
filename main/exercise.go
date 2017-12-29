@@ -25,12 +25,17 @@ func excerciseSelection(w http.ResponseWriter, r *http.Request) {
 	//be used to send the filtered data to template
 	var workoutData []models.Workout
 	if r.FormValue("bicep") == "on" {
+
 		//filters the correct data based on usr input
-		var filteredData = []models.Workout{
-			allData[0], allData[1],
+		for _, element := range allData {
+
+			if element.PrimaryMuscle == "bicep" {
+				//we have to append the data so we dont go out of bounds
+				workoutData = append(workoutData, element)
+			}
 		}
 		//fills the data sent to template with the correct filtered data
-		workoutData = filteredData
+
 	}
 	//sets the template up and executes it with the data
 	t, err := template.ParseFiles("templates/exercises.html")
