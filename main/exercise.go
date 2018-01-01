@@ -26,7 +26,7 @@ func excerciseSelection(w http.ResponseWriter, r *http.Request) {
 	var workoutData []models.Workout
 	if r.FormValue("bicep") == "on" {
 
-		//filters the correct data based on usr input
+		//filters the correct data based on user input
 		for _, element := range allData {
 
 			if element.PrimaryMuscle == "bicep" {
@@ -34,9 +34,87 @@ func excerciseSelection(w http.ResponseWriter, r *http.Request) {
 				workoutData = append(workoutData, element)
 			}
 		}
-		//fills the data sent to template with the correct filtered data
 
 	}
+
+	if r.FormValue("quad") == "on" {
+
+		//filters the correct data based on user input
+		for _, element := range allData {
+
+			if element.PrimaryMuscle == "quad" {
+				//we have to append the data so we dont go out of bounds
+				workoutData = append(workoutData, element)
+			}
+		}
+
+	}
+
+	if r.FormValue("back") == "on" {
+
+		//filters the correct data based on user input
+		for _, element := range allData {
+
+			if element.PrimaryMuscle == "back" {
+				//we have to append the data so we dont go out of bounds
+				workoutData = append(workoutData, element)
+			}
+		}
+
+	}
+
+	if r.FormValue("hamstring") == "on" {
+
+		//filters the correct data based on user input
+		for _, element := range allData {
+
+			if element.PrimaryMuscle == "hamstring" {
+				//we have to append the data so we dont go out of bounds
+				workoutData = append(workoutData, element)
+			}
+		}
+
+	}
+
+	if r.FormValue("chest") == "on" {
+
+		//filters the correct data based on user input
+		for _, element := range allData {
+
+			if element.PrimaryMuscle == "chest" {
+				//we have to append the data so we dont go out of bounds
+				workoutData = append(workoutData, element)
+			}
+		}
+
+	}
+
+	if r.FormValue("tricep") == "on" {
+
+		//filters the correct data based on user input
+		for _, element := range allData {
+
+			if element.PrimaryMuscle == "tricep" {
+				//we have to append the data so we dont go out of bounds
+				workoutData = append(workoutData, element)
+			}
+		}
+
+	}
+
+	if r.FormValue("shoulder") == "on" {
+
+		//filters the correct data based on user input
+		for _, element := range allData {
+
+			if element.PrimaryMuscle == "shoulder" {
+				//we have to append the data so we dont go out of bounds
+				workoutData = append(workoutData, element)
+			}
+		}
+
+	}
+
 	//sets the template up and executes it with the data
 	t, err := template.ParseFiles("templates/exercises.html")
 	if err != nil {
