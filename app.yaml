@@ -1,0 +1,29 @@
+runtime: go
+api_version: go1
+env: standard
+handlers:
+- url: /templates/index.html
+  static_files: index.html
+  upload: index.
+  
+- url: /img
+  static_dir: img
+
+- url: /data
+  static_files: data.go
+  upload: data.go
+
+- url: /js
+  static_files: main.js
+  upload: main.js
+
+- url: /css
+  static_files: site.css
+  upload: site.css
+
+- url: /models
+  static_files: workouts.go
+  upload: workouts.go
+
+- url: /.*
+  script: _go_app

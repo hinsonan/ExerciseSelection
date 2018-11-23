@@ -1,6 +1,6 @@
 package data
 
-import models "github.com/andrewhinson/ExerciseSelection/models"
+import models "ExerciseSelection/models"
 
 //this is an enum in go its made by using constants
 const (

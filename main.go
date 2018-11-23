@@ -1,13 +1,14 @@
 package main
 
 import (
+	data "ExerciseSelection/data"
+	models "ExerciseSelection/models"
 	"html/template"
 	"io"
 	"log"
 	"net/http"
 
-	data "github.com/andrewhinson/ExerciseSelection/data"
-	models "github.com/andrewhinson/ExerciseSelection/models"
+	"google.golang.org/appengine"
 )
 
 var allData = data.DataArray
@@ -116,7 +117,7 @@ func excerciseSelection(w http.ResponseWriter, r *http.Request) {
 	}
 
 	//sets the template up and executes it with the data
-	t, err := template.ParseFiles("templates/exercises.html")
+	t, err := template.ParseFiles("templates/index.html")
 	if err != nil {
 		log.Print("template parsing error: ", err)
 	}
@@ -135,5 +136,6 @@ func main() {
 
 	http.HandleFunc("/", excerciseSelection)
 	http.HandleFunc("/newExercise", getNewExercise)
-	http.ListenAndServe(":8080", nil)
+	//http.ListenAndServe(":8080", nil)
+	appengine.Main() // Start the server
 }
