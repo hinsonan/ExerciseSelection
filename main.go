@@ -7,6 +7,8 @@ import (
 	"io"
 	"log"
 	"net/http"
+
+	"google.golang.org/appengine"
 )
 
 var allData = data.DataArray
@@ -134,5 +136,5 @@ func main() {
 
 	http.HandleFunc("/", excerciseSelection)
 	http.HandleFunc("/newExercise", getNewExercise)
-	http.ListenAndServe(":8080", nil)
+	appengine.Main()
 }
